@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="css/styles.css" type="text/css" ref="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue Practice</title>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="message"><br />
+      {{ message }}
+
+      <ul>
+        <li v-for="food in food_items">{{ food }}</li>
+        <li v-for="city in cities">{{ city }}</li>
+      </ul>
+
+      <button>Click Me</button>
+    </div>
+
+    <script>
+    var app = new Vue ({
+      el: '#app',
+      data: {
+        'message': 'Hello Vue JS!',
+        'food_items': ['hamburger', 'pizza', 'fries'],
+        'cities': ['Portland', 'Chicago', 'Miami']
+      }
+    })
+    </script>
+
+
+
+  </body>
+</html>
