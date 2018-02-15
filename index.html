@@ -16,7 +16,7 @@
         <li v-for="city in cities">{{ city }}</li>
       </ul>
 
-      <button>Click Me</button>
+      <button v-on:click="buttonClick">Click Me</button>
     </div>
 
     <script>
@@ -26,6 +26,11 @@
         'message': 'Hello Vue JS!',
         'food_items': ['hamburger', 'pizza', 'fries'],
         'cities': ['Portland', 'Chicago', 'Miami']
+      },
+      methods: {
+        buttonClick: function(){
+          alert('Hey! I was clicked');
+        }
       }
     })
     </script>
