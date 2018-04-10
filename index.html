@@ -7,110 +7,45 @@
     <title>Vue Practice</title>
   </head>
   <body>
+
+    <!-- <div id="app">
+        <p>Movie: {{ movieTitle }} </p>
+        <p>Released: {{ yearReleased }}</p>
+        <p>This movie is {{ isMovieOld()}}</p>
+        <p>Director: {{ director }}</p>
+        <p>Quote: {{ quote }}</p>
+        <div v-bind:title="movieTitle">Hover over this text</div>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: '#app',
+        data: {
+          movieTitle: 'Tough Guys Dont Dance',
+          yearReleased: 1987,
+          director: 'Norman Mailer',
+          quote: "'Your....knife....is....in....my....dog.'"
+        },
+        methods: {
+          isMovieOld: function() {
+            return this.yearReleased < 2000 ? 'old' : 'new';
+          }
+        }
+      });
+    </script> -->
     <div id="app">
-      <div class="search-wrapper">
-        <input type="text" v-model="keyword" placeholder="Search Title ....."
-        />
-        <label>Search Title:</label>
-      </div>
-      <div class="wrapper">
-        <div class="card" v-for="post in filteredList">
-          <a v-bind:href="post.link" target="_blank">
-            <small>Posted By {{ post.author }}</small>
-            <img v-bind:src="post.img" />
-            {{ post.title }}
-          </a>
-        </div>
-      </div>
+      <button v-on:click.once="showDialog">Click Here</button>
+      <a href="http://google.com" v-on:click="showDialog" target="_blank">Or here!</a>
     </div>
 
-    <script>
-    class Post {
-      constructor(title, link, author, img) {
-      this.title = title;
-      this.link = link;
-      this.author = author;
-      this.img = img;
-      }
-    }
-
-    const app = new Vue ({
-      el: '#app',
-      data: {
-        keyword: '',
-        postList: [
-      new Post(
-        'Vue.js',
-        'https://vuejs.org/',
-        'Chris',
-        'https://vuejs.org//images/logo.png'
-      ),
-      new Post(
-        'React.js',
-        'https://facebook.github.io/react/',
-        'Tim',
-        'http://daynin.github.io/clojurescript-presentation/img/react-logo.png'
-      ),
-      new Post(
-        'Angular.js',
-        'https://angularjs.org/',
-        'Sam',
-        'https://angularjs.org/img/ng-logo.png'
-      ),
-      new Post(
-        'Ember.js',
-        'http://emberjs.com/',
-        'Rachel',
-        'http://www.gravatar.com/avatar/0cf15665a9146ba852bf042b0652780a?s=200'
-      ),
-      new Post(
-        'Meteor.js',
-        'https://www.meteor.com/',
-        'Chris',
-        'http://hacktivist.in/introduction-to-nodejs-mongodb-meteor/img/meteor.png'
-      ),
-      new Post(
-        'Aurelia',
-        'http://aurelia.io/',
-        'Tim',
-        'https://cdn.auth0.com/blog/aurelia-logo.png'
-      ),
-      new Post(
-        'Node.js',
-        'https://nodejs.org/en/',
-        'A. A. Ron',
-        'https://code-maven.com/img/node.png'
-      ),
-      new Post(
-        'Pusher',
-        'https://pusher.com/',
-        'Alex',
-        'https://avatars1.githubusercontent.com/u/739550?v=3&s=400'
-      ),
-      new Post(
-        'Feathers.js',
-        'http://feathersjs.com/',
-        'Chuck',
-        'https://cdn.worldvectorlogo.com/logos/feathersjs.svg'
-      ),
-]
-      },
-      methods: {
-        toggleOnOff(){
-          this.onOff = !this.onOff;
+    <script type="text/javascript">
+      var app = new Vue ({
+        el: '#app',
+        methods: {
+          showDialog: function(){
+            alert('Hello World!');
+          }
         }
-      },
-      computed: {
-        filteredList() {
-     return this.postList.filter((post) => {
-       return post.title.toLowerCase().includes(this.keyword.toLowerCase());
-          });
-        }
-      }
-    });
+      });
     </script>
-
-
-
   </body>
 </html>
