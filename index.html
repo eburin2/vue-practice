@@ -32,7 +32,8 @@
         }
       });
     </script> -->
-    <div id="app">
+
+    <!-- <div id="app">
       <button v-on:click.once="showDialog">Click Here</button>
       <a href="http://google.com" v-on:click="showDialog" target="_blank">Or here!</a>
     </div>
@@ -45,6 +46,21 @@
             alert('Hello World!');
           }
         }
+      });
+    </script> -->
+
+    <div id="app">
+      <p v-if="itemsInStock > 10">{{ itemsInStock }} in stock.</p>
+      <p v-else-if="itemsInStock > 0">Hurry up, there are just a few items left!</p>
+      <p v-else>Too bad, we're all out!</p>
+    </div>
+
+    <script type="text/javascript">
+      var app = new Vue ({
+        el: '#app',
+        data: {
+          itemsInStock: 0
+          }
       });
     </script>
   </body>
